@@ -1453,7 +1453,7 @@ pre .javascript .function {
   display: none;
 }
 .posts-expand .post-title {
-  text-align: center;
+  text-align: center !important;
   word-break: break-word;
   font-weight: 400;
 }
@@ -1612,7 +1612,7 @@ pre .javascript .function {
   width: 8%;
   height: 1px;
   background: #ccc;
-  text-align: center;
+  text-align: left;
 }
 .post:last-child .post-eof.post-eof.post-eof {
   display: none;
@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #bb6b4d;
+  background: #03da30;
 }
 .links-of-blogroll {
   font-size: 13px;
