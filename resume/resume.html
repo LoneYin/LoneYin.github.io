@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>个人简历</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="fullPage:For desktop(ie5.5+) or mobile webApp without jQuery,create full screen pages fast and simple.">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+  <div>
+    <div class="page section1 current">
+      <div class="contain">
+        <div id="pageContain">
+
+          <div class="page page1 current">
+            <div class="contain">
+              <h3 class="title">尹龙云</h3>
+              <h4 class="titleEng">Lone Yin</h4>
+              <h4 class="titleEng age">21岁</h4>
+              <p class="p1">一名大四在校生</p>
+              <p class="p2">一个爱折腾的青年</p>
+              <p class="p3">一只菜鸟前端工程师</p>
+              <img id="portrait" src="images/portrait.jpeg" alt="" class="page1-box">
+            </div>
+          </div>
+
+          <div class="page page2">
+            <div class="contain">
+              <h3 class="title">基本资料</h3>
+              <h4 class="titleEng p1">
+                <span class="em">青岛大学</span>&nbsp;本科
+              </h4>
+              <h4 class="titleEng p2">毕业于
+                <span class="em">2018年7月</span>
+              </h4>
+              <h4 class="titleEng p3">数软学院&nbsp;数字媒体技术专业</h4>
+              <p class="h1">我想要找一份
+                <span class="em">实习</span>工作</p>
+              <p class="h2">期望薪资是
+                <span class="em">4000+</span>
+              </p>
+
+            </div>
+          </div>
+
+          <div class="page page3">
+            <div class="contain">
+              <h3 class="title">专业技能</h3>
+              <h4 class="titleEng">could use animation(CSS3)</h4>
+            </div>
+            <div class="scTop"></div>
+            <div class="scBottom"></div>
+          </div>
+
+          <div class="page page4">
+            <div class="contain">
+              <h3 class="title">支持手机端触摸</h3>
+              <h4 class="titleEng">Touch it!</h4>
+              <div class="page4-box">
+                <img src="" alt="微信">
+              </div>
+            </div>
+          </div>
+        </div>
+        <ul id="navBar">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="js/fullPage.min.js"></script>
+  <script type="text/javascript">
+    var runPage, runPage2;
+    runPage = new FullPage({
+      id: 'pageContain', // id of contain
+      slideTime: 1000, // time of slide
+      effect: { // slide effect
+        transform: {
+          translate: 'Y', // 'X'|'Y'|'XY'|'none'
+          scale: [0, 1], // [scalefrom, scaleto]
+          rotate: [60, 0] // [rotatefrom, rotateto]
+        },
+        opacity: [0, 1] // [opacityfrom, opacityto]
+      },
+      mode: 'wheel,touch,nav:navBar', // mode of fullpage
+      easing: [0, .93, .39, .98], // easing('ease','ease-in','ease-in-out' or use cubic-bezier like [.33, 1.81, 1, 1] )
+    });
+
+  </script>
+</body>
+
+</html>
