@@ -53,47 +53,49 @@
               <h3 class="title">专业技能</h3>
               <div class="tagsBox">
                 <div class="row">
-                  <p class="tags">HTML5</p>
-                  <p class="tags">CSS3</p>
-                  <p class="tags">JavaScript</p>
+                  <p class="tags delay">HTML5</p>
+                  <p class="tags delay">CSS3</p>
+                  <p class="tags delay">JavaScript</p>
                 </div>
                 <div class="row">
-                  <p class="tags">ECMAScript6</p>
-                  <p class="tags">TypeScript</p>
-                  <p class="tags">jQuery</p>
-                  <p class="tags">Zepto</p>
+                  <p class="tags delay">ECMAScript6</p>
+                  <p class="tags delay">TypeScript</p>
+                  <p class="tags delay">jQuery</p>
+                  <p class="tags delay">Zepto</p>
+
                 </div>
                 <div class="row">
-                  <p class="tags">Ajax</p>
-                  <p class="tags">HTTP</p>
-                  <p class="tags">SEO</p>
-                  <p class="tags">Node.js</p>
-                  <p class="tags">express</p>
+                  <p class="tags delay">Ajax</p>
+                  <p class="tags delay">HTTP</p>
+                  <p class="tags delay">SEO</p>
+                  <p class="tags delay">Node.js</p>
+                  <p class="tags delay">express</p>
+
                 </div>
                 <div class="row">
-                  <p class="tags">Sass/Less</p>
-                  <p class="tags">Bootstrap</p>
-                  <p class="tags">MuseUI</p>
-                  <p class="tags">Ionic</p>
+                  <p class="tags delay">Sass/Less</p>
+                  <p class="tags delay">Bootstrap</p>
+                  <p class="tags delay">MuseUI</p>
+                  <p class="tags delay">Ionic</p>
                 </div>
                 <div class="row">
-                  <p class="tags">gulp</p>
-                  <p class="tags">webpack</p>
-                  <p class="tags">Git</p>
-                  <p class="tags">SVN</p>
-                  <p class="tags">requireJS</p>
+                  <p class="tags delay">gulp</p>
+                  <p class="tags delay">webpack</p>
+                  <p class="tags delay">Git</p>
+                  <p class="tags delay">SVN</p>
+                  <p class="tags delay">requireJS</p>
                 </div>
                 <div class="row">
-                  <p class="tags">MySQL</p>
-                  <p class="tags">MongoDB</p>
-                  <p class="tags">Hybrid</p>
-                  <p class="tags">小程序</p>
+                  <p class="tags delay">MySQL</p>
+                  <p class="tags delay">MongoDB</p>
+                  <p class="tags delay">Hybrid</p>
+                  <p class="tags delay">小程序</p>
                 </div>
                 <div class="row">
-                  <p class="tags">Vue.js</p>
-                  <p class="tags">React.js</p>
-                  <p class="tags">Angular.js</p>
-                  <p class="tags">Angular2+</p>
+                  <p class="tags delay">Vue.js</p>
+                  <p class="tags delay">React.js</p>
+                  <p class="tags delay">Angular.js</p>
+                  <p class="tags delay">Angular2+</p>
                 </div>
               </div>
             </div>
@@ -137,14 +139,13 @@
       easing: [0, .93, .39, .98], // easing('ease','ease-in','ease-in-out' or use cubic-bezier like [.33, 1.81, 1, 1] )
     });
     window.onload = function () {
-         var o = document.getElementById("portrait");
-         console.log(o);
-         var oTags = document.querySelectorAll(".tags");
-         console.log(oTags[2]);
-         for (var i = 0; i < oTags.length; i++) {
-         oTags[i].style.animationDelay = ((Math.random() * 10 / 10 + 1).toFixed(1)) + "s";
-         }
+      var oDelays = document.querySelectorAll(".delay");
+      for (var i = 0; i < oDelays.length; i++) {
+        var thisDelay = ((Math.random() * 10 / 10 + 1).toFixed(1)) + "s";
+        oDelays[i].style.cssText = "animation-delay:" + thisDelay + ";-webkit-animation-delay:" + thisDelay + ";-moz-animation-delay:" + thisDelay + ";-ms-animation-delay:" + thisDelay + ";";
+      }
     }
+
   </script>
 
 </body>
