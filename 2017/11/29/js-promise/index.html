@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="云流れ">
 <meta property="og:description" content="什么是Promise? &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;所有了解前端和JavaScript的同学都知道，JavaScript作为一门单线程的语言，处理异步的方式都是通过回调函数(callback)。而为了控制异步操作的执行顺序，则需要回调函数的层层嵌套，最终就会形成回调地狱。嵌套层数过多的回调函数可读性近乎为零而且极难维护，所以我们需要改变这种代码形式，Promise的出现就是为了">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-30T09:51:15.456Z">
+<meta property="og:updated_time" content="2017-11-30T09:52:58.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS学习笔记——谈谈Promise">
 <meta name="twitter:description" content="什么是Promise? &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;所有了解前端和JavaScript的同学都知道，JavaScript作为一门单线程的语言，处理异步的方式都是通过回调函数(callback)。而为了控制异步操作的执行顺序，则需要回调函数的层层嵌套，最终就会形成回调地狱。嵌套层数过多的回调函数可读性近乎为零而且极难维护，所以我们需要改变这种代码形式，Promise的出现就是为了">
@@ -353,7 +353,7 @@
 
       
         <h2 id="什么是Promise"><a href="#什么是Promise" class="headerlink" title="什么是Promise?"></a>什么是Promise?</h2><hr>
-<p>&ensp;&ensp;&ensp;&ensp;所有了解前端和<code>JavaScript</code>的同学都知道，<code>JavaScript</code>作为一门单线程的语言，处理异步的方式都是通过回调函数<code>(callback)</code>。而为了控制异步操作的执行顺序，则需要回调函数的层层嵌套，最终就会形成回调地狱。嵌套层数过多的回调函数可读性近乎为零而且极难维护，所以我们需要改变这种代码形式，<code>Promise</code>的出现就是为了把JS复杂的嵌套转换成常人容易理解的线性代码。<br><br></p>
+<p>&ensp;&ensp;&ensp;&ensp;所有了解前端和<code>JavaScript</code>的同学都知道，<code>JavaScript</code>作为一门单线程的语言，处理异步的方式都是通过回调函数<code>(callback)</code>。而为了控制异步操作的执行顺序，则需要回调函数的层层嵌套，最终就会形成回调地狱。嵌套层数过多的回调函数可读性近乎为零而且极难维护，所以我们需要改变这种代码形式，<code>Promise</code>的出现就是为了把JS复杂的嵌套转换成常人容易理解的线性代码。<br><a id="more"></a><br><br></p>
 <h2 id="Promise的基本用法"><a href="#Promise的基本用法" class="headerlink" title="Promise的基本用法"></a>Promise的基本用法</h2><hr>
 <p>&ensp;&ensp;&ensp;&ensp;<code>Promise</code>是<code>CommonJS</code>的规范之一，并且被纳入了<code>ES6</code>之中，<code>ES6</code>规定，<code>Promise</code>对象是一个构造函数，用来生成<code>Promose</code>实例。   </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//创造一个Promise实例</span><br><span class="line"></span><br><span class="line">var Mypromise = new Promise(function(resolve, reject) &#123;</span><br><span class="line">   //... your code</span><br><span class="line"></span><br><span class="line">   if (/* 异步操作成功的条件 */) &#123;</span><br><span class="line">      /* 操作成功 */</span><br><span class="line">      resolve(value);</span><br><span class="line">   &#125; else &#123;</span><br><span class="line">      /* 操作失败 */</span><br><span class="line">      reject(error);</span><br><span class="line">   &#125;  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
