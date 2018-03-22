@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="浅拷贝 ES5实现单个目标对象拷贝多个源对象，其实就是封装了Object.assign方法显然，Object.assign 方法会跳过值为null或者undefined的源对象12345678910111213141516var shallowCopy = Object.assign || function (targ">
+<meta name="description" content="浅拷贝ES5实现单个目标对象拷贝多个源对象，其实就是封装了Object.assign方法    显然，Object.assign 方法会跳过值为null或者undefined的源对象    1234567891011121314151617181920212223   var shallowCopy = Object.">
 <meta name="keywords" content="JavaScript,ES6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS学习笔记———对象的拷贝">
 <meta property="og:url" content="http://inerdstack.com/2017/03/22/object-copy/index.html">
 <meta property="og:site_name" content="云流れ">
-<meta property="og:description" content="浅拷贝 ES5实现单个目标对象拷贝多个源对象，其实就是封装了Object.assign方法显然，Object.assign 方法会跳过值为null或者undefined的源对象12345678910111213141516var shallowCopy = Object.assign || function (target) &amp;#123;   for (var i = 1; i &amp;lt; argu">
+<meta property="og:description" content="浅拷贝ES5实现单个目标对象拷贝多个源对象，其实就是封装了Object.assign方法    显然，Object.assign 方法会跳过值为null或者undefined的源对象    1234567891011121314151617181920212223   var shallowCopy = Object.assign || function (target) &amp;#123;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-22T11:33:14.897Z">
+<meta property="og:updated_time" content="2018-03-22T11:34:52.219Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS学习笔记———对象的拷贝">
-<meta name="twitter:description" content="浅拷贝 ES5实现单个目标对象拷贝多个源对象，其实就是封装了Object.assign方法显然，Object.assign 方法会跳过值为null或者undefined的源对象12345678910111213141516var shallowCopy = Object.assign || function (target) &amp;#123;   for (var i = 1; i &amp;lt; argu">
+<meta name="twitter:description" content="浅拷贝ES5实现单个目标对象拷贝多个源对象，其实就是封装了Object.assign方法    显然，Object.assign 方法会跳过值为null或者undefined的源对象    1234567891011121314151617181920212223   var shallowCopy = Object.assign || function (target) &amp;#123;">
 
 
 
@@ -357,63 +357,23 @@
       
 
       
-        <h1 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h1><blockquote>
-<p>ES5实现单个目标对象拷贝多个源对象，其实就是封装了<code>Object.assign</code>方法<br>显然，<code>Object.assign</code> 方法会跳过值为<code>null</code>或者<code>undefined</code>的源对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var shallowCopy = Object.assign || function (target) &#123;</span><br><span class="line">   for (var i = 1; i &lt; arguments.length; i++) &#123;</span><br><span class="line">      var source = arguments[i];</span><br><span class="line">      for (var key in source) &#123;</span><br><span class="line">         if (Object.prototype.hasOwnProperty.call(source, key)) &#123;</span><br><span class="line">            target[key] = source[key];</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   return target;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 举个例子</span><br><span class="line">var obj = &#123; a: 1, b: 2, c: &#123; d: 3 &#125; &#125;;</span><br><span class="line">var shallowCopiedObj = shallowCopy(&#123;&#125;, obj);</span><br><span class="line">console.log(shallowCopiedObj);</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<a id="more"></a>
+        <h1 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h1><p>ES5实现单个目标对象拷贝多个源对象，其实就是封装了<code>Object.assign</code>方法  </p>
 <blockquote>
-<p> Object.prototype.hasOwnProperty方法：<br>   用来判断某个对象是否含有指定的属性的 <code>Boolean</code>， 只要 <code>key</code> 存在就返回 <code>true</code>， 这样做是为了过滤掉那些继承自原型链上的属性</p>
-<p>ES6的实现就非常简单了, 直接使用拓展运算符， 数组同理</p>
+<p>显然，<code>Object.assign</code> 方法会跳过值为<code>null</code>或者<code>undefined</code>的源对象  </p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123; a: 1, b: 2, c: &#123; d: 3 &#125; &#125;;</span><br><span class="line">const shallowCopiedObj = &#123; ...obj &#125;;</span><br><span class="line">console.log(shallowCopiedObj);</span><br></pre></td></tr></table></figure>
-<h1 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h1><blockquote>
-<p>深拷贝与浅拷贝的区别是，浅拷贝只会拷贝第一个层级，下级子对象还是拷贝的引用，换句话说，浅拷贝就是一级深拷贝， 而深拷贝会通过递归遍历所有层级  </p>
-</blockquote>
-<p><br></p>
-<table>
-<thead>
-<tr>
-<th>&emsp;</th>
-<th>和原数据是否指向同一对象</th>
-<th>第一层数据为基本数据类型</th>
-<th>原数据中包含子级对象</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>赋值</td>
-<td>是</td>
-<td>改变会使原数据一同改变</td>
-<td>改变会使原数据一同改变</td>
-</tr>
-<tr>
-<td>浅拷贝</td>
-<td>否</td>
-<td>改变<strong>不</strong>会使原数据一同改变</td>
-<td>改变会使原数据一同改变</td>
-</tr>
-<tr>
-<td>深拷贝</td>
-<td>否</td>
-<td>改变<strong>不</strong>会使原数据一同改变</td>
-<td>改变<strong>不</strong>会使原数据一同改变</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h2 id="举个例子说明"><a href="#举个例子说明" class="headerlink" title="举个例子说明"></a>举个例子说明</h2><blockquote>
-<p>就用我们实现浅拷贝时封装的方法  <code>shallowCopy()</code><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var dad = &#123;</span><br><span class="line">   count:[1,2,3],</span><br><span class="line">   game:&#123;Inside:true&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var kid = shallowCopy(dad);</span><br><span class="line"></span><br><span class="line">kid.count.push(4);   </span><br><span class="line">kid.count.toString(); // &quot;1,2,3,4&quot;</span><br><span class="line">dad.count.toString();  // &quot;1,2,3,4&quot;</span><br><span class="line">dad.game === kid.game;  // true</span><br></pre></td></tr></table></figure></p>
-<p>我们发现修改<code>kid</code>的子级对象（此处是数组<code>count</code>）会同时改变<code>dad</code>的子级对象，此处还是拷贝的子对象的引用，那么该如何实现对象的深拷贝呢？</p>
-<h2 id="两个方法"><a href="#两个方法" class="headerlink" title="两个方法"></a>两个方法</h2><ul>
-<li>利用JSON深拷贝  ( 底层还是用到了递归 )<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JSON.parse(JSON.stringify(obj));</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<ul>
-<li>利用递归调用浅拷贝<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function deepCopy (target, source) &#123;</span><br><span class="line">   for (var key in source) &#123;</span><br><span class="line">      if (Object.prototype.hasOwnProperty.call(source, key)) &#123;</span><br><span class="line">         if (typeof(source[key]) === &apos;object&apos;) &#123;</span><br><span class="line">            target[key] = Array.isArray(source[key]) ? [] : &#123;&#125;;</span><br><span class="line">            deepCopy(target[key], source[key])</span><br><span class="line">         &#125; else &#123;</span><br><span class="line">            target[key] = source[key];</span><br><span class="line">         &#125;  </span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var mutiArgDeepCopy = function (target) &#123;</span><br><span class="line">   target = target || &#123;&#125;;</span><br><span class="line">   for (var i = 1; i &lt; arguments.length; i++) &#123;</span><br><span class="line">      var source = arguments[i];</span><br><span class="line">      deepCopy(target, source);</span><br><span class="line">   &#125;</span><br><span class="line">   return target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="同样举一个例子说明"><a href="#同样举一个例子说明" class="headerlink" title="同样举一个例子说明"></a>同样举一个例子说明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var dad = &#123;</span><br><span class="line">   count:[1,2,3],</span><br><span class="line">   game:&#123;Inside:true&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var kid = mutiArgDeepCopy(&#123;&#125;, dad);</span><br><span class="line"></span><br><span class="line">kid.count.push(4);</span><br><span class="line">kid.count.toString(); // &quot;1,2,3,4&quot;</span><br><span class="line">dad.count.toString();  // &quot;1,2,3&quot;</span><br><span class="line">dad.game === kid.game;  // false</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">   var shallowCopy = Object.assign || function (target) &#123;</span><br><span class="line">      for (var i = 1; i &lt; arguments.length; i++) &#123;</span><br><span class="line">         var source = arguments[i];</span><br><span class="line">         for (var key in source) &#123;</span><br><span class="line">            if (Object.prototype.hasOwnProperty.call(source, key)) &#123;</span><br><span class="line">               target[key] = source[key];</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      return target;</span><br><span class="line">   &#125;;</span><br><span class="line"></span><br><span class="line">   // 举个例子</span><br><span class="line">   var obj = &#123; a: 1, b: 2, c: &#123; d: 3 &#125; &#125;;</span><br><span class="line">   var shallowCopiedObj = shallowCopy(&#123;&#125;, obj);</span><br><span class="line">   console.log(shallowCopiedObj);</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line">&gt;  Object.prototype.hasOwnProperty方法：  </span><br><span class="line">   用来判断某个对象是否含有指定的属性的 `Boolean`， 只要 `key` 存在就返回 `true`， 这样做是为了过滤掉那些继承自原型链上的属性</span><br><span class="line"></span><br><span class="line">ES6的实现就非常简单了, 直接使用拓展运算符， 数组同理</span><br></pre></td></tr></table></figure>
+<p>   const obj = { a: 1, b: 2, c: { d: 3 } };<br>   const shallowCopiedObj = { …obj };<br>   console.log(shallowCopiedObj);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 深拷贝</span><br><span class="line"></span><br><span class="line">深拷贝与浅拷贝的区别是，浅拷贝只会拷贝第一个层级，下级子对象还是拷贝的引用，换句话说，浅拷贝就是一级深拷贝， 而深拷贝会通过递归遍历所有层级  </span><br><span class="line"></span><br><span class="line">&lt;br/&gt;</span><br><span class="line"></span><br><span class="line">&amp;emsp;| 和原数据是否指向同一对象 | 第一层数据为基本数据类型 |原数据中包含子级对象</span><br><span class="line">---|--- | --- | -- |</span><br><span class="line">赋值 | 是 | 改变会使原数据一同改变 | 改变会使原数据一同改变</span><br><span class="line">浅拷贝 | 否 |  改变**不**会使原数据一同改变 |  改变会使原数据一同改变</span><br><span class="line">深拷贝 | 否 |  改变**不**会使原数据一同改变 |  改变**不**会使原数据一同改变</span><br><span class="line"></span><br><span class="line">&lt;br/&gt;</span><br><span class="line"></span><br><span class="line">##  举个例子说明  </span><br><span class="line">就用我们实现浅拷贝时封装的方法  `shallowCopy()`</span><br></pre></td></tr></table></figure></p>
+<p>   var dad = {<br>      count:[1,2,3],<br>      game:{Inside:true}<br>   };</p>
+<p>   var kid = shallowCopy(dad);</p>
+<p>   kid.count.push(4);<br>   kid.count.toString(); // “1,2,3,4”<br>   dad.count.toString();  // “1,2,3,4”<br>   dad.game === kid.game;  // true<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; 我们发现修改`kid`的子级对象（此处是数组`count`）会同时改变`dad`的子级对象，此处还是拷贝的子对象的引用，那么该如何实现对象的深拷贝呢？  </span><br><span class="line"></span><br><span class="line">##  两个方法  </span><br><span class="line">* 利用JSON深拷贝  ( 底层还是用到了递归 )</span><br></pre></td></tr></table></figure></p>
+<p>   JSON.parse(JSON.stringify(obj));<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 利用递归调用浅拷贝</span><br></pre></td></tr></table></figure></p>
+<p>function deepCopy (target, source) {<br>   for (var key in source) {<br>      if (Object.prototype.hasOwnProperty.call(source, key)) {<br>         if (typeof(source[key]) === ‘object’) {<br>            target[key] = Array.isArray(source[key]) ? [] : {};<br>            deepCopy(target[key], source[key])<br>         } else {<br>            target[key] = source[key];<br>         }<br>      }<br>   }<br>}</p>
+<p>var mutiArgDeepCopy = function (target) {<br>   target = target || {};<br>   for (var i = 1; i &lt; arguments.length; i++) {<br>      var source = arguments[i];<br>      deepCopy(target, source);<br>   }<br>   return target;<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## 同样举一个例子说明</span><br></pre></td></tr></table></figure>
+<p>   var dad = {<br>      count:[1,2,3],<br>      game:{Inside:true}<br>   };</p>
+<p>   var kid = mutiArgDeepCopy({}, dad);</p>
+<p>   kid.count.push(4);<br>   kid.count.toString(); // “1,2,3,4”<br>   dad.count.toString();  // “1,2,3”<br>   dad.game === kid.game;  // false</p>
+<p>```</p>
 <blockquote>
 <p>可以看出我们将子层级的对象也完成了深拷贝， 递归实现深拷贝的话需要注意对象属性循环引用的问题，不加判断的话递归会无穷无尽</p>
 </blockquote>
@@ -609,7 +569,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#浅拷贝"><span class="nav-number">1.</span> <span class="nav-text">浅拷贝</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深拷贝"><span class="nav-number">2.</span> <span class="nav-text">深拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#举个例子说明"><span class="nav-number">2.1.</span> <span class="nav-text">举个例子说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两个方法"><span class="nav-number">2.2.</span> <span class="nav-text">两个方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同样举一个例子说明"><span class="nav-number">2.3.</span> <span class="nav-text">同样举一个例子说明</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#浅拷贝"><span class="nav-number">1.</span> <span class="nav-text">浅拷贝</span></a></li></ol></div>
             
 
           </div>
